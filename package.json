@@ -1,0 +1,22 @@
+{
+  "name": "ng-contextual-help",
+  "version": "0.0.1",
+  "description": "Angular component for providing contextual help within an application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rleahy22/ng-contextual-help.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Ryan Leahy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rleahy22/ng-contextual-help/issues"
+  },
+  "homepage": "https://github.com/Rleahy22/ng-contextual-help#readme"
+}
