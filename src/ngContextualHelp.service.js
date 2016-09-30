@@ -1,13 +1,14 @@
 class ContextualHelpService {
     constructor () {
         this.showHelp  = false;
-        this.textPairs = {
-            intro: 'This is the intro'
-        };
     }
 
     getValue (key) {
-        return this.textPairs[key];
+        return this.helpMap[key];
+    }
+
+    setHelpMap (helpMap) {
+        this.helpMap = helpMap;
     }
 
     toggleHelp () {

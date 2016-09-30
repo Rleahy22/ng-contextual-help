@@ -11,10 +11,13 @@ class ContextualHelp {
     }
 
     link (scope, element, attr, ctr) {
-        element.bind('mouseenter', () => {
+        element.bind('mouseenter', (event) => {
             if (ctr.ContextualHelpService.showHelp) {
-                const helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
-                element.append('<div id="contextual-help-display">' + helpText + '</div>');
+                const helpText  = ctr.ContextualHelpService.getValue(attr.contextualHelp);
+                let helpElement = angular.element('<div id="contextual-help-display" class="contextual-help-display">' + helpText + '</div>');
+
+                helpElement.css({ top: event.pageY, left: event.pageX });
+                element.append(helpElement);
             }
         });
 

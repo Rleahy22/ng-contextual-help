@@ -1,22 +1,34 @@
 class ContextualHelpController {
     constructor (ContextualHelpService) {
         this.ContextualHelpService = ContextualHelpService;
+
+        this.documentBody = angular.element(document.querySelector('body'));
+        this.showHelp     = false;
+    }
+
+    $onInit () {
+        this.ContextualHelpService.setHelpMap(this.helpMap);
     }
 
     toggleHelp () {
         this.ContextualHelpService.toggleHelp();
-        if (this.ContextualHelpService.showHelp) {
-            angular.element(document.querySelector('body')).css('cursor', 'help');
+        this.showHelp = this.ContextualHelpService.showHelp;
+
+        if (this.showHelp) {
+            this.documentBody.css('cursor', 'help');
         } else {
-            angular.element(document.querySelector('body')).css('cursor', 'default');
+            this.documentBody.css('cursor', 'default');
         }
     }
 }
 
 const componentRegistry = {
+    bindings: {
+        helpMap: '<'
+    },
     controller: ContextualHelpController,
     template: `
-        <i ng-click="$ctrl.toggleHelp()">?</i>
+        <button ng-click="$ctrl.toggleHelp()" ng-class="$ctrl.showHelp ? 'active' : 'inactive'">?</button>
     `
 };
 

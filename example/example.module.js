@@ -4,7 +4,9 @@ var exampleApp = angular.module('exampleApp', [
 
 class exampleCtrl {
     constructor () {
-        var vm = this;
+        this.textPairs = {
+            intro: 'This is the intro'
+        };
     }
 }
 
