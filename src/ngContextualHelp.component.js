@@ -1,3 +1,5 @@
+import './ngContextualHelp.css';
+
 class ContextualHelpController {
     constructor (ContextualHelpService) {
         this.ContextualHelpService = ContextualHelpService;
