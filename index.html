@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/Rleahy22/angularJsonEdit/master/dist/styles/jsonEditor.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script src="https://cdn.rawgit.com/Rleahy22/ng-contextual-help/master/example/example.module.js"></script>
+        <script src="https://cdn.rawgit.com/Rleahy22/ng-contextual-help/master/dist/ngContextualHelp.js"></script>
+    </head>
+    <body ng-app="exampleApp">
+        <div ng-controller="exampleCtrl as example">
+            <span contextual-help="intro">This is the intro to the app.</span>
+            <ng-contextual-help help-map="example.textPairs"></ng-contextual-help>
+        </div>
+    </body>
+</html>
