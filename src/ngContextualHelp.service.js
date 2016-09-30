@@ -1,5 +1,6 @@
 class ContextualHelpService {
     constructor () {
+        this.showHelp  = false;
         this.textPairs = {
             intro: 'This is the intro'
         };
@@ -7,6 +8,10 @@ class ContextualHelpService {
 
     getValue (key) {
         return this.textPairs[key];
+    }
+
+    toggleHelp () {
+        this.showHelp = !this.showHelp;
     }
 }
 

@@ -3,10 +3,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
         <script src="example.module.js"></script>
         <script src="../dist/ngContextualHelp.js"></script>
+        <link rel="stylesheet" href="../src/ngContextualHelp.css"></style>
     </head>
     <body ng-app="exampleApp">
         <div ng-controller="exampleCtrl as example">
             <span contextual-help="intro">This is the intro to the app.</span>
         </div>
+        <ng-contextual-help></ng-contextual-help>
     </body>
 </html>

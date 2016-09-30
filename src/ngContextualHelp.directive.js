@@ -12,8 +12,10 @@ class ContextualHelp {
 
     link (scope, element, attr, ctr) {
         element.bind('mouseenter', () => {
-            const helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
-            element.append('<div id="contextual-help-display">' + helpText + '</div>');
+            if (ctr.ContextualHelpService.showHelp) {
+                const helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
+                element.append('<div id="contextual-help-display">' + helpText + '</div>');
+            }
         });
 
         element.bind('mouseleave', () => {
