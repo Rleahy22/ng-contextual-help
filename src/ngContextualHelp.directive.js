@@ -1,17 +1,29 @@
+class ContextualHelpController {
+    constructor (ContextualHelpService) {
+        this.ContextualHelpService = ContextualHelpService;
+    }
+}
+
 class ContextualHelp {
     constructor () {
-        this.bindToController = true;
-        this.controller       = ContextualHelpController;
-        this.controllerAs     = 'ctrl';
-        this.restrict         = 'A';
-        this.scope            = {};
+        this.controller = ContextualHelpController;
+        this.restrict   = 'A';
+    }
+
+    link (scope, element, attr, ctr) {
+        element.bind('mouseenter', () => {
+            const helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
+            element.append('<div id="contextual-help-display">' + helpText + '</div>');
+        });
+
+        element.bind('mouseleave', () => {
+            angular.element(document.querySelector('#contextual-help-display')).remove();
+        });
+    }
+
+    static directiveFactory () {
+        return new ContextualHelp();
     }
 }
 
-class ContextualHelpController {
-    constructor () {
-        console.log('HERE');
-    }
-}
-
-ContextualHelp.$inject = [];
+export default ContextualHelp.directiveFactory;
