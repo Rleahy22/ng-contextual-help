@@ -2,7 +2,7 @@
   "name": "ng-contextual-help",
   "version": "0.0.1",
   "description": "Angular component for providing contextual help within an application",
-  "main": "index.js",
+  "main": "dist/ngContextualHelp.js",
   "scripts": {
     "start": "webpack && gulp connect"
   },
