@@ -255,7 +255,7 @@
 
 
 	// module
-	exports.push([module.id, "ng-contextual-help button {\n  background: #FAFAFA;\n  color: #000000;\n  cursor: pointer;\n  font-size: 1rem;\n  position: fixed;\n  right: 1rem;\n  padding: 0 5px;\n  top: 1rem;\n}\nng-contextual-help .active {\n  border: 2px solid #F44336;\n  border-radius: 15px;\n}\nng-contextual-help .inactive {\n  border: 2px solid #4CAF50;\n  border-radius: 15px;\n}\n.contextual-help-display {\n  background: #E0E0E0;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  display: inline-block;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  font-size: 0.9rem;\n  font-weight: 400;\n  padding: 10px;\n  position: fixed;\n}\n", ""]);
+	exports.push([module.id, "ng-contextual-help button {\n  background: #FAFAFA;\n  color: #000000;\n  cursor: pointer;\n  font-size: 1rem;\n  position: fixed;\n  right: 1rem;\n  padding: 0 5px;\n  top: 1rem;\n  z-index: 100;\n}\nng-contextual-help .active {\n  border: 2px solid #F44336;\n  border-radius: 15px;\n}\nng-contextual-help .inactive {\n  border: 2px solid #4CAF50;\n  border-radius: 15px;\n}\n.contextual-help-display {\n  background: #E0E0E0;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  display: inline-block;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  font-size: 0.9rem;\n  font-weight: 400;\n  padding: 10px;\n  position: fixed;\n  z-index: 100;\n}\n", ""]);
 
 	// exports
 
