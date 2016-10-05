@@ -5,7 +5,8 @@ var exampleApp = angular.module('exampleApp', [
 class exampleCtrl {
     constructor () {
         this.textPairs = {
-            intro: 'This is the intro'
+            intro: 'This is the intro',
+            bear: 'A bear a bear all covered in hair'
         };
     }
 }

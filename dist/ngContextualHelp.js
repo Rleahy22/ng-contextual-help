@@ -91,19 +91,28 @@
 	    _createClass(ContextualHelp, [{
 	        key: 'link',
 	        value: function link(scope, element, attr, ctr) {
-	            element.bind('mouseenter', function (event) {
-	                if (ctr.ContextualHelpService.showHelp) {
-	                    var helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
-	                    var helpElement = angular.element('<div id="contextual-help-display" class="contextual-help-display">' + helpText + '</div>');
 
-	                    helpElement.css({ top: event.pageY, left: event.pageX });
-	                    element.append(helpElement);
-	                }
-	            });
+	            element.bind('mouseenter', appendHelp);
 
 	            element.bind('mouseleave', function () {
 	                angular.element(document.querySelector('#contextual-help-display')).remove();
 	            });
+
+	            function appendHelp(event) {
+	                if (ctr.ContextualHelpService.showHelp) {
+	                    var appendFn = 'append';
+
+	                    if (element[0].tagName === 'IMG') {
+	                        appendFn = 'after';
+	                    }
+
+	                    var helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
+	                    var helpElement = angular.element('<div id="contextual-help-display" class="contextual-help-display">' + helpText + '</div>');
+
+	                    helpElement.css({ top: event.pageY, left: event.pageX });
+	                    element[appendFn](helpElement);
+	                }
+	            }
 	        }
 	    }], [{
 	        key: 'directiveFactory',
