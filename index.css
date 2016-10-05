@@ -1,0 +1,9 @@
+.container .md-nav-bar {
+  background: #90caf9;
+}
+.container .md-nav-bar .md-active {
+  color: #ffffff;
+}
+.container .left-col {
+  padding: 5px;
+}
