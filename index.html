@@ -1,19 +1,36 @@
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
         <link rel="stylesheet" href="https://cdn.rawgit.com/Rleahy22/angularJsonEdit/master/dist/styles/jsonEditor.css">
+        <link rel="stylesheet" href="./index.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-aria.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js"></script>
-        <script src="https://cdn.rawgit.com/Rleahy22/ng-contextual-help/gh-pages/example.module.js"></script>
+        <script src="./example.module.js"></script>
+        <!-- <script src="https://cdn.rawgit.com/Rleahy22/ng-contextual-help/gh-pages/example.module.js"></script> -->
         <script src="https://cdn.rawgit.com/Rleahy22/ng-contextual-help/master/dist/ngContextualHelp.js"></script>
     </head>
     <body ng-app="exampleApp">
-        <div ng-controller="exampleCtrl as example">
-            <md-nav-bar md-selected-nav-item="currentNavItem">
-                <md-nav-item md-nav-click="#" name="page1" ng-diasbled="true">Page One</md-nav-item>
-                <md-nav-item md-nav-sref="#" name="page2"  ng-diasbled="true">Page Two</md-nav-item>
-                <md-nav-item md-nav-href="#" name="page3"  ng-diasbled="true">Page Three</md-nav-item>
+        <div ng-controller="exampleCtrl as example" class="container">
+            <ng-contextual-help help-map="example.textPairs"></ng-contextual-help>
+            <md-nav-bar md-selected-nav-item="page1" nav-bar-aria-label="Nav Bar" class="nav-bar">
+                <md-nav-item md-nav-href="#" name="page1" ng-diasbled="true" contextual-help="firstNav">Page One</md-nav-item>
+                <md-nav-item md-nav-sref="#" name="page2"  ng-diasbled="true" contextual-help="secondNav">Page Two</md-nav-item>
+                <md-nav-item md-nav-href="#" name="page3"  ng-diasbled="true" contextual-help="thirdNav">Page Three</md-nav-item>
             </md-nav-bar>
+            <div layout="row">
+                <div flex="33" class="left-col">
+                    <md-input-container layout="column" contextual-help="checkbox">
+                        <md-checkbox ng-model="example.one" aria-label="one">One</md-checkbox>
+                        <md-checkbox ng-model="example.two" aria-label="two">Two</md-checkbox>
+                        <md-checkbox ng-model="example.three" aria-label="three">Three</md-checkbox>
+                    </md-input-container>
+                </div>
+                <div flex="66" class="left-col">
+
+                </div>
+            </div>
         </div>
     </body>
 </html>
