@@ -5,8 +5,7 @@
   "main": "dist/ngContextualHelp.js",
   "scripts": {
     "start": "webpack && gulp connect",
-    "compile": "babel --source-maps -d dist/ src/",
-    "prepublish": "npm run compile"
+    "prepublish": "webpack"
   },
   "repository": {
     "type": "git",
