@@ -4,6 +4,7 @@ module.exports = {
         path: './dist',
         filename: 'ngContextualHelp.js'
     },
+    devtool: 'source-map',
     module: {
         loaders: [
             {

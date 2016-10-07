@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -45,19 +45,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	var _ngContextualHelp = __webpack_require__(1);
-
+	
 	var _ngContextualHelp2 = _interopRequireDefault(_ngContextualHelp);
-
+	
 	var _ngContextualHelp3 = __webpack_require__(2);
-
+	
 	var _ngContextualHelp4 = _interopRequireDefault(_ngContextualHelp3);
-
+	
 	var _ngContextualHelp5 = __webpack_require__(3);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	angular.module('ngContextualHelp', []).directive('contextualHelp', _ngContextualHelp2.default).service('ContextualHelpService', _ngContextualHelp4.default).component('ngContextualHelp', _ngContextualHelp5.componentRegistry);
 
 /***/ },
@@ -65,50 +65,49 @@
 /***/ function(module, exports) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
+	
 	var ContextualHelpController = function ContextualHelpController(ContextualHelpService) {
 	    _classCallCheck(this, ContextualHelpController);
-
+	
 	    this.ContextualHelpService = ContextualHelpService;
 	};
-
+	
 	var ContextualHelp = function () {
 	    function ContextualHelp() {
 	        _classCallCheck(this, ContextualHelp);
-
+	
 	        this.controller = ContextualHelpController;
 	        this.restrict = 'A';
 	    }
-
+	
 	    _createClass(ContextualHelp, [{
 	        key: 'link',
 	        value: function link(scope, element, attr, ctr) {
-
 	            element.bind('mouseenter', appendHelp);
-
+	
 	            element.bind('mouseleave', function () {
 	                angular.element(document.querySelector('#contextual-help-display')).remove();
 	            });
-
+	
 	            function appendHelp(event) {
 	                if (ctr.ContextualHelpService.showHelp) {
 	                    var appendFn = 'append';
-
+	
 	                    if (element[0].tagName === 'IMG') {
 	                        appendFn = 'after';
 	                    }
-
+	
 	                    var helpText = ctr.ContextualHelpService.getValue(attr.contextualHelp);
 	                    var helpElement = angular.element('<div id="contextual-help-display" class="contextual-help-display">' + helpText + '</div>');
-
+	
 	                    helpElement.css({ top: event.pageY, left: event.pageX });
 	                    element[appendFn](helpElement);
 	                }
@@ -120,10 +119,10 @@
 	            return new ContextualHelp();
 	        }
 	    }]);
-
+	
 	    return ContextualHelp;
 	}();
-
+	
 	exports.default = ContextualHelp.directiveFactory;
 
 /***/ },
@@ -131,22 +130,22 @@
 /***/ function(module, exports) {
 
 	"use strict";
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
+	
 	var ContextualHelpService = function () {
 	    function ContextualHelpService() {
 	        _classCallCheck(this, ContextualHelpService);
-
+	
 	        this.showHelp = false;
 	    }
-
+	
 	    _createClass(ContextualHelpService, [{
 	        key: "getValue",
 	        value: function getValue(key) {
@@ -163,10 +162,10 @@
 	            this.showHelp = !this.showHelp;
 	        }
 	    }]);
-
+	
 	    return ContextualHelpService;
 	}();
-
+	
 	exports.default = ContextualHelpService;
 
 /***/ },
@@ -174,28 +173,28 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.ContextualHelpController = exports.componentRegistry = undefined;
-
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
+	
 	__webpack_require__(4);
-
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
+	
 	var ContextualHelpController = function () {
 	    function ContextualHelpController(ContextualHelpService) {
 	        _classCallCheck(this, ContextualHelpController);
-
+	
 	        this.ContextualHelpService = ContextualHelpService;
-
+	
 	        this.documentBody = angular.element(document.querySelector('body'));
 	        this.showHelp = false;
 	    }
-
+	
 	    _createClass(ContextualHelpController, [{
 	        key: '$onInit',
 	        value: function $onInit() {
@@ -206,7 +205,7 @@
 	        value: function toggleHelp() {
 	            this.ContextualHelpService.toggleHelp();
 	            this.showHelp = this.ContextualHelpService.showHelp;
-
+	
 	            if (this.showHelp) {
 	                this.documentBody.css('cursor', 'help');
 	            } else {
@@ -214,10 +213,10 @@
 	            }
 	        }
 	    }]);
-
+	
 	    return ContextualHelpController;
 	}();
-
+	
 	var componentRegistry = {
 	    bindings: {
 	        helpMap: '<'
@@ -225,7 +224,7 @@
 	    controller: ContextualHelpController,
 	    template: '\n        <button ng-click="$ctrl.toggleHelp()" ng-class="$ctrl.showHelp ? \'active\' : \'inactive\'">?</button>\n    '
 	};
-
+	
 	exports.componentRegistry = componentRegistry;
 	exports.ContextualHelpController = ContextualHelpController;
 
@@ -234,7 +233,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(5);
 	if(typeof content === 'string') content = [[module.id, content, '']];
@@ -261,11 +260,11 @@
 
 	exports = module.exports = __webpack_require__(6)();
 	// imports
-
-
+	
+	
 	// module
 	exports.push([module.id, "ng-contextual-help button {\n  background: #FAFAFA;\n  color: #000000;\n  cursor: pointer;\n  font-size: 1rem;\n  position: fixed;\n  right: 1rem;\n  padding: 0 5px;\n  top: 1rem;\n  z-index: 100;\n}\nng-contextual-help .active {\n  border: 2px solid #F44336;\n  border-radius: 15px;\n}\nng-contextual-help .inactive {\n  border: 2px solid #4CAF50;\n  border-radius: 15px;\n}\n.contextual-help-display {\n  background: #E0E0E0;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  display: inline-block;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  font-size: 0.9rem;\n  font-weight: 400;\n  padding: 10px;\n  position: fixed;\n  z-index: 100;\n}\n", ""]);
-
+	
 	// exports
 
 
@@ -280,7 +279,7 @@
 	// css base code, injected by the css-loader
 	module.exports = function() {
 		var list = [];
-
+	
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
@@ -294,7 +293,7 @@
 			}
 			return result.join("");
 		};
-
+	
 		// import a list of modules into the list
 		list.i = function(modules, mediaQuery) {
 			if(typeof modules === "string")
@@ -350,23 +349,23 @@
 		singletonElement = null,
 		singletonCounter = 0,
 		styleElementsInsertedAtTop = [];
-
+	
 	module.exports = function(list, options) {
 		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
-
+	
 		options = options || {};
 		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 		// tags it will allow on a page
 		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
+	
 		// By default, add <style> tags to the bottom of <head>.
 		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
+	
 		var styles = listToStyles(list);
 		addStylesToDom(styles, options);
-
+	
 		return function update(newList) {
 			var mayRemove = [];
 			for(var i = 0; i < styles.length; i++) {
@@ -389,7 +388,7 @@
 			}
 		};
 	}
-
+	
 	function addStylesToDom(styles, options) {
 		for(var i = 0; i < styles.length; i++) {
 			var item = styles[i];
@@ -411,7 +410,7 @@
 			}
 		}
 	}
-
+	
 	function listToStyles(list) {
 		var styles = [];
 		var newStyles = {};
@@ -429,7 +428,7 @@
 		}
 		return styles;
 	}
-
+	
 	function insertStyleElement(options, styleElement) {
 		var head = getHeadElement();
 		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
@@ -448,7 +447,7 @@
 			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 		}
 	}
-
+	
 	function removeStyleElement(styleElement) {
 		styleElement.parentNode.removeChild(styleElement);
 		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
@@ -456,24 +455,24 @@
 			styleElementsInsertedAtTop.splice(idx, 1);
 		}
 	}
-
+	
 	function createStyleElement(options) {
 		var styleElement = document.createElement("style");
 		styleElement.type = "text/css";
 		insertStyleElement(options, styleElement);
 		return styleElement;
 	}
-
+	
 	function createLinkElement(options) {
 		var linkElement = document.createElement("link");
 		linkElement.rel = "stylesheet";
 		insertStyleElement(options, linkElement);
 		return linkElement;
 	}
-
+	
 	function addStyle(obj, options) {
 		var styleElement, update, remove;
-
+	
 		if (options.singleton) {
 			var styleIndex = singletonCounter++;
 			styleElement = singletonElement || (singletonElement = createStyleElement(options));
@@ -499,9 +498,9 @@
 				removeStyleElement(styleElement);
 			};
 		}
-
+	
 		update(obj);
-
+	
 		return function updateStyle(newObj) {
 			if(newObj) {
 				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
@@ -512,19 +511,19 @@
 			}
 		};
 	}
-
+	
 	var replaceText = (function () {
 		var textStore = [];
-
+	
 		return function (index, replacement) {
 			textStore[index] = replacement;
 			return textStore.filter(Boolean).join('\n');
 		};
 	})();
-
+	
 	function applyToSingletonTag(styleElement, index, remove, obj) {
 		var css = remove ? "" : obj.css;
-
+	
 		if (styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = replaceText(index, css);
 		} else {
@@ -538,15 +537,15 @@
 			}
 		}
 	}
-
+	
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-
+	
 		if(media) {
 			styleElement.setAttribute("media", media)
 		}
-
+	
 		if(styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = css;
 		} else {
@@ -556,22 +555,22 @@
 			styleElement.appendChild(document.createTextNode(css));
 		}
 	}
-
+	
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
 		var sourceMap = obj.sourceMap;
-
+	
 		if(sourceMap) {
 			// http://stackoverflow.com/a/26603875
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
-
+	
 		var blob = new Blob([css], { type: "text/css" });
-
+	
 		var oldSrc = linkElement.href;
-
+	
 		linkElement.href = URL.createObjectURL(blob);
-
+	
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
@@ -579,3 +578,4 @@
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=ngContextualHelp.js.map
