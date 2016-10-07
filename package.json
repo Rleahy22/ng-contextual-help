@@ -4,7 +4,7 @@
   "description": "Angular component for providing contextual help within an application",
   "main": "dist/ngContextualHelp.js",
   "scripts": {
-    "start": "webpack && gulp connect",
+    "start": "webpack && gulp connect"
   },
   "repository": {
     "type": "git",
